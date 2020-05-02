@@ -1,0 +1,47 @@
+<div class="row outer-row">
+	<div class="row image-row">
+		<div class="label-row">
+			<a href="index.html">Home</a>
+			<span>Products</span>
+            <h1 >Products</h1>
+		</div>
+    </div>
+
+    
+	
+	
+    <div class="cart-outer-box">
+        <div class="cart-inner-box">
+			<div class="table-responsive">
+				<table class="table table-start table-striped"  >
+					<thead class="table-head">
+						<tr >
+							<th *ngFor="let head of headElements" scope="col">{{head}} </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor='let data of responseData'>
+							<th scope="row">{{data.id}}</th>
+							<td>{{data.productList}}</td>
+							<td>{{data.price}}</td>
+							<td>{{data.quantity}}</td>
+							<td>{{data.total}}</td>
+							<td>
+								<a class="edit" title="Edit" data-toggle="tooltip"  >
+									<i class="material-icons">&#xE254;</i>
+								</a>
+								<a class="delete" title="Delete" data-toggle="tooltip" >
+									<i class="material-icons">&#xE872;</i>
+								</a>
+							</td>     
+						</tr>
+					</tbody>
+				</table>
+    
+			</div>
+        </div>
+    </div>
+	<section>
+		<app-footer></app-footer>
+	</section>
+</div>

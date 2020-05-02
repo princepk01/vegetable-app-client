@@ -1,0 +1,52 @@
+.profile-info-outer-row {
+    /* display: flex;
+    flex-wrap: wrap; */
+    margin-right: 60px;
+    margin-left: 342px;
+}
+
+.form-box {
+    width: 68%;
+    margin-left: 10%;
+    margin-top: 37px;
+}
+
+.form-group select {
+    width: 66%;
+}
+
+.scroll-header {
+    width: 103%;
+    background-color: #82ae46 !important;
+    color: blue;
+    font-weight: 400;
+    font-size: 20px;
+    height: 34px;
+}
+
+.message-box {
+    margin-left: 80px;
+    margin-top: 20px;
+    margin-right: 150px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.form-group .b1 {
+    margin-left: 25%;
+}
+
+.form-group .b2 {
+    margin-left: 10px;
+    width: 101px;
+}
+
+.form-group a.edit {
+    color: #FFC107;
+    cursor: pointer;
+}
+
+.footer-image img {
+    margin-left: -27px;
+    width: 1049px;
+}

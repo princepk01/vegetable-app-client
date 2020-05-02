@@ -1,0 +1,60 @@
+.outer-row {
+    margin-right: 2px;
+}
+
+.image-row {
+    background-image: url(src/assets/images/bg_1.jpg);
+    width: 101%;
+    height: 468px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 80px;
+}
+
+.label-row {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    margin-top: 222px;
+    transform: translate(-50%, -50%);
+    letter-spacing: 4px;
+}
+
+.label-row h1 {
+    font-size: 50px;
+    color: white;
+    font-weight: 700;
+}
+
+.label-row a,
+span {
+    font-size: 22px;
+    margin-left: 14px;
+    color: white;
+}
+
+.cart-outer-box {
+    width: 100%;
+}
+
+.cart-inner-box {
+    margin-top: 6%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.table-head {
+    background-color: #82ae46 !important;
+    color: white;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+    cursor: pointer;
+}
+
+table.table td a.delete {
+    color: #E34724;
+    cursor: pointer;
+}

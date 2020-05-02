@@ -1,0 +1,74 @@
+       <div class="row profile-info-outer-row">
+  <!--<div class="scroll-header">
+    <marquee direction="right">
+    <label for="uname"><b>Profile Information</b></label>
+    </marquee >
+    </div>-->
+ 
+
+ <div class="form-box">
+            <div class="form-group row">
+                <label for="name" class="col-md-3 l1"><b>Name</b></label>
+                <input type="text" class="form-control col-md-8 t1" [(ngModel)]="loginInformation.name"  placeholder="Enter name" id="name"> 
+                <a class="edit col-md-1" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            </div>
+            <div class="form-group row">
+                <label for="country" class="col-md-3"><b>Gender</b></label>
+                <select id="country"   class='select-option col-md-8' [(ngModel)]="loginInformation.gender">
+                    <option class='option' *igIf="loginInformation.gender != null" value={{loginInformation.gender}} >{{loginInformation.gender}}</option>
+                    <option class='option' value=null >Select Gender</option>
+                    <option class='option' value="Male">Male</option>
+                    <option class='option' value="Female">Female</option>
+                </select>
+                <a class="edit col-md-1" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+               <!-- <input type="text" class="form-control col-md-8" [(ngModel)]="placeGiftCard.country" placeholder="Enter your country" id="country" name="country">-->
+            </div>
+          
+            <div class="form-group row">
+                <label for="email" class="col-md-3 l1"><b>Email Address</b></label>
+                <input type="email" class="form-control col-md-8 t1" [(ngModel)]="loginInformation.emailAddress" value="" placeholder="Enter email address" id="email">
+                <a class="edit col-md-1" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            </div>
+            <div class="form-group row">
+                <label for="mobileNumber" class="col-md-3 l1"><b>Mobile Number</b></label>
+                <input type="text" class="form-control col-md-8 t1"  [(ngModel)]="loginInformation.mobileNumber" value="" placeholder="Enter mobile number" id="mobileNumber">
+                <a class="edit col-md-1" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            </div>
+			<div class="form-group row">
+                <button type="button" class="btn btn-success b1" (click)="saveUser()" >Save Changes</button>
+                <button type="button" class="btn btn-danger b2">Reset</button>
+            </div>
+</div>
+ <!--<div class="scroll-header">
+    <marquee direction="right">
+    <label for="uname"><b>FAQs</b></label>
+    </marquee >
+    </div>-->
+<div class="message-box">
+    <li>
+		<b>What happens when I update my email address (or mobile number)?</b>
+		<ul>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).</ul>
+	</li>
+	<li>
+		<b>When will my Flipkart account be updated with the new email address (or mobile number)?</b>
+		<ul>It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.</ul>
+	</li>
+	<li>
+		<b>What happens to my existing Flipkart account when I update my email address (or mobile number)?</b>
+		<ul>Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.</ul>
+	</li>
+	<li>
+		<b>Does my Seller account get affected when I update my email address?</b>
+		<ul>Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also.</ul>
+	</li>
+</div>
+
+<div class="row footer-image">
+        <img src="assets/images/footer.png"/>
+    </div>
+</div>
+ 
+
+  
+  
+  

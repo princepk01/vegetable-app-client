@@ -1,0 +1,76 @@
+
+
+<div class="nav-side-menu sidebar-wrapper">
+   <!-- <div class="brand">Brand Logo</div>-->
+     <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">
+            <strong>{{userName}}</strong>
+          </span>
+          <span class="user-role">{{userRole}}</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <a href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                  </a>
+                </li>
+
+                <li  data-toggle="collapse" data-target="#profileInformation" class="collapsed active">
+                  <a ><i class="fa fa-users fa-lg"></i> Profile Settings <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="profileInformation">
+                    <li [routerLink] = "['profile-management']" routerLinkActive="active" class="active"><a >Profile Information</a></li>
+                    <li [routerLink] = "['address-management']" routerLinkActive="active"><a >Manage Addresses</a></li>
+                  </ul>
+
+                  <li [routerLink]="['my-order']" routerLinkActive="active">
+                      <a ><i class="fa fa-first-order"></i> My Orders</a>
+                </li>
+                <li data-toggle="collapse" data-target="#service" class="collapsed" *ngIf="isAdmin">
+                  <a ><i class="fa fa-globe fa-lg"></i> Product <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li>Add Product</li>
+                  <li>Add Product Item</li>
+                  <li>New Service 3</li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                  <li>New New 1</li>
+                  <li>New New 2</li>
+                  <li>New New 3</li>
+                </ul>
+
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-user fa-lg"></i> Profile
+                  </a>
+                  </li>
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li>
+            </ul>
+     </div>
+</div>

@@ -1,0 +1,232 @@
+<!-- FOR HEADER MENU CODE-->
+<div class="row">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
+	<div class="container">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">
+   <!-- <img class="image-icon-one" src="assets/images/3.png"/>
+    <img class="image-icon-two" src="assets/images/4.png"/>-->
+  </a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <!--<a class="nav-link" (click)="menu('')">HOME</a>-->
+        <a class="nav-link" [routerLink]="['/']">HOME</a>
+      </li>
+       <!-- Dropdown -->
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        SHOP
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/shop']">Shop</a>
+        <a class="dropdown-item" [routerLink]="['/wish-list']">Wishlist</a>
+        <a class="dropdown-item" [routerLink]="['/single-product']">Single Product</a>
+        <a class="dropdown-item" [routerLink]="['/cart']">Cart</a>
+        <a class="dropdown-item" [routerLink]="['/check-out']">Checkout</a>
+      </div>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/blog']">BLOG</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contact']">CONTACT</a>
+      </li> 
+       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/cart']">
+         <span class='fas fa-shopping-cart'>[0]</span>
+        </a>
+      </li> 
+      <li class="nav-item" *ngIf="loginSuccess">
+        <a class="nav-link"  data-toggle="modal" data-target="#login-model" *ngIf="loginSuccess">LOGIN</a>
+      </li>   
+		 <!-- After login -->
+      <li class="nav-item dropdown" *ngIf="loginProfile">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">{{userName}}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" [routerLink]="['/profile']"><span><i class="fas fa-user-alt"></i></span>Profile</a>
+            <a class="dropdown-item" [routerLink] = "['']">My Order</a>
+            <a class="dropdown-item" [routerLink] = "['']"><span class='fas fa-shopping-cart'></span>My Cart</a>
+            <a class="dropdown-item" (click)="logout()"><span><i class="fas fa-power-off"></i></span>Logout</a>
+          </div>
+    </li>
+    </ul>
+  </div>
+	</div>
+</nav>
+
+  <!-- The Login Modal -->
+  <div class="modal fade" id="login-model">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-part">
+      
+        <!-- Modal Header 
+        <div class="modal-header">
+          <p class="modal-title"><b>Login</b></p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>-->
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+				<div  class="login-dp row">
+				<div class="col-md-12 ">
+					Login via
+					<div class="row social-buttons">
+						<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+						<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+					</div>
+					 or
+					<div class="login-form"> 
+						<div class="form-group">
+							<label class="sr-only" for="emailOrMobileNumber">Email address or mobile number</label>
+							 <input type="email" class="form-control" [(ngModel)] = "loginModel.emailOrMobileNumber" id="emailOrMobileNumber" placeholder="Email address or mobile number" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="pasword">Password</label>
+							<input type="password" class="form-control" [(ngModel)] = "loginModel.password" id="pasword" placeholder="Password" required>
+							<div class="help-block text-right">
+								<a data-toggle="modal" data-dismiss="modal" data-target="#forgot-password-model" >Forget the password ?</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block" data-dismiss="modal" (click)="login()">Sign in</button>
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox"> keep me logged-in</label>
+						</div>
+						<div class="new-user row">
+							<label>New User  :</label>
+							<label>
+								<a data-toggle="modal" data-dismiss="modal" data-target="#signup-model">Join Here</a>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+     </div>
+    </div>
+  </div>
+  
+  <!-- The Sign Up Modal -->
+  <div class="modal fade" id="signup-model">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-part">
+      
+        <!-- Modal Header 
+        <div class="modal-header">
+          <p class="modal-title"><b>Login</b></p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>-->
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+				<div  class="login-dp row">
+		
+
+				<div class="col-md-12 ">
+					Sign Up via
+					<div class="row social-buttons">
+						<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+						<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+					</div>
+					or
+					<div class="login-form"> 
+						<div class="form-group">
+							<label class="sr-only" for="name">Your Name</label>
+							<input type="text" class="form-control" [(ngModel)] = "userModel.name" id="name" placeholder="Email your name"  required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="mobileNumber">Mobile number</label>
+							<input type="text" class="form-control" [(ngModel)] = "userModel.mobileNumber" id="mobileNumber" placeholder="Email mobile number" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="emailAddress">Email address</label>
+							 <input type="email" class="form-control" [(ngModel)] = "userModel.emailAddress" id="emailAddress" placeholder="Email email address" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="password">Password</label>
+							<input type="password" class="form-control" [(ngModel)] = "userModel.password" id="password" placeholder="Enter Password" required>
+						</div>
+              <div class="form-group ">
+                <label class="sr-only" for="role"><b>Role</b></label>
+                <select id="role"   class='select-option' [(ngModel)]="userModel.userRole">
+                    <option class='option' value=null >Select Role</option>
+                    <option class='option' value="ROLE_ADMIN">ROLE_ADMIN</option>
+                    <option class='option' value="ROLE_USER">ROLE_USER</option>
+                </select>
+               <!-- <input type="text" class="form-control col-md-8" [(ngModel)]="placeGiftCard.country" placeholder="Enter your country" id="country" name="country">-->
+            </div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block" (click)="signUp()" data-dismiss="modal">Sign UP</button>
+						</div>
+						<div class="new-user row">
+							<label>Already have a account :</label>
+							<label><a data-toggle="modal" data-dismiss="modal" data-target="#login-model">click here</a></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+     </div>
+    </div>
+  </div>
+  
+  
+  <!-- The Forgot Password Modal -->
+  <div class="modal fade" id="forgot-password-model">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-part">
+      
+        <!-- Modal Header 
+        <div class="modal-header">
+          <p class="modal-title"><b>Login</b></p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>-->
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+				<div  class="login-dp row">
+		
+
+				<div class="col-md-12 ">
+					<div class="forgot-password">
+						<label><h5>Password assistance</h5></label>
+						<hr>
+						<label>Enter the email or mobile number associated with your account.</label>
+					</div>
+					<div class="login-form"> 
+						<div class="form-group">
+							<label class="sr-only" for="emailOrMobileNumber-1">Email address or mobile number</label>
+							 <input type="email" class="form-control" id="emailOrMobileNumber-1" placeholder="Enter email or mobile number" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="Password">Password</label>
+							<input type="password" class="form-control" id="Password" placeholder="Enter password" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="conformPassword">Conform Password</label>
+							<input type="password" class="form-control" id="conformPassword" placeholder="Enter conform password" required>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+     </div>
+    </div>
+  </div>
+</div>

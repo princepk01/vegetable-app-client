@@ -1,0 +1,80 @@
+<div class="row manage-address-outer-box">
+ <!--<div class="scroll-header">
+    <marquee direction="right">
+    <label for="uname"><b>Manage Address</b></label>
+    </marquee >
+    </div>-->
+
+    <div class="row border manage-address" *ngIf="manageAddress" >
+        <a (click)="addAddress()"><span><i class="fa fa-plus"></i><b>Add a new address</b></span></a>
+    </div>
+      <div class="row border manage-address" *ngIf="address">
+        <span><b><h2>Add a new address</h2></b></span>
+    
+         <div class="form-box" >
+            <div class="form-group row">
+                <label for="name" class="col-md-4 l1"><b>Name</b></label>
+                <input type="text" class="form-control col-md-8 t1" [(ngModel)]="manageAddressModel.name" value="" placeholder="Enter name" id="name">
+            </div>
+            <div class="form-group row">
+                <label for="mobileNumber" class="col-md-4 l1"><b>Mobile Number</b></label>
+                <input type="text" class="form-control col-md-8 t1" [(ngModel)]="manageAddressModel.mobileNumber" value="" placeholder="Enter mobile number" id="mobileNumber">
+            </div>
+            <div class="form-group row">
+                <label for="pinCode" class="col-md-4 l1"><b>Pin Code</b></label>
+                <input type="text" class="form-control col-md-8 t1" [(ngModel)]="manageAddressModel.pinCode" value="" placeholder="Enter pin code" id="pinCode">
+            </div>
+            <div class="form-group row">
+                <label for="address" class="col-md-4 l1"><b>Address</b></label>
+                <textarea class="form-control" rows="5" [(ngModel)]="manageAddressModel.address" value="" placeholder="Enter address" id="address"></textarea>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-md-4 l1"><b>City</b></label>
+                <input type="text" class="form-control col-md-8 t1" [(ngModel)]="manageAddressModel.city" value="" placeholder="Enter city" id="city">
+            </div>
+            <div class="form-group row">
+                <label for="state" class="col-md-4"><b>State</b></label>
+                <select id="state"   class='select-option' [(ngModel)]="manageAddressModel.state" >
+                <option class='option' *igIf="manageAddressModel.state != null" value={{manageAddressModel.state}} >{{manageAddressModel.state}}</option>
+                    <option class='option' value=null >Select State</option>
+                    <option class='option' value="Bihar">Bihar</option>
+                    <option class='option' value="Tamilnadu">Tamilnadu</option>
+                    <option class='option' value="Jharkhand">Jharkhand</option>
+                    <option class='option' value="Karnataka">Karnataka</option>
+                    <option class='option' value="Maharashtra">Maharashtra</option>
+                </select>
+               <!-- <input type="text" class="form-control col-md-8" [(ngModel)]="placeGiftCard.country" placeholder="Enter your country" id="country" name="country">-->
+            </div>
+            <div class="form-group row">
+                <button type="button" class="btn btn-success b1" (click)="saveAddress()">Save Address</button>
+                <button type="button" class="btn btn-danger b2" (click)="cancelAdress()">Cancel</button>
+            </div>
+</div>
+    </div>
+
+
+
+</div>
+
+<div class="row display-data-row">
+
+	<div class="row border data-row" *ngFor='let address of addressList'>
+         <li>
+		<span class="name"><b>{{address.name}}</b></span>
+        <span class="mobile-number"><b>{{address.mobileNumber}}</b></span>
+        <a class="edit" title="Edit" data-toggle="tooltip" (click)="editAddressById(address.id)" ><i class="material-icons">&#xE254;</i></a>
+        <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteAddressById(address.id)"><i class="material-icons">&#xE872;</i></a>
+		<ul>
+            {{address.address}} <br>
+            {{address.city}},  {{address.state}} - {{address.pinCode}} <br>
+        
+        </ul>
+	</li>
+	
+
+	</div>
+<!--
+    <div class="row footer-image">
+        <img src="assets/images/footer.png"/>
+    </div>-->
+</div>
