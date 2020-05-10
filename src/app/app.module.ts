@@ -19,6 +19,8 @@ import { ShopComponent } from './component/shop/shop.component';
 import { SingleProductComponent } from './component/single-product/single-product.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
 import { CustomExceptionHandler } from './exception/custom.exception.handler';
+import { ShowProductsComponent } from './component/show-products/show-products.component';
+import { ShowSingleProductComponent } from './component/show-single-product/show-single-product.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CustomExceptionHandler } from './exception/custom.exception.handler';
     ShopComponent,
     SingleProductComponent,
     WishListComponent,
+    ShowProductsComponent,
+    ShowSingleProductComponent,
    
   ],
   imports: [

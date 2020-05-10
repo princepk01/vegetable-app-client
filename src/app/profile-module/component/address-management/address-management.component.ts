@@ -48,7 +48,7 @@ export class AddressManagementComponent implements OnInit {
   getAddressByUserId() {
     var usreInfo = localStorage.getItem('userInfo');
     this.userModel = JSON.parse(usreInfo);
-    this.commonService.getAddressByUserId(this.userModel.id, 'address/get-address-by-user-id').subscribe((res: any) => {
+    this.commonService.getAddressByUserId(this.userModel.id).subscribe((res: any) => {
       console.log(res.data);
       if (res.status) {
         this.addressList = res.data;
@@ -57,7 +57,7 @@ export class AddressManagementComponent implements OnInit {
   }
 
   editAddressById(addressId:number){
-    this.commonService.editAddressById(addressId,'address/get-address-by-id').subscribe((res:any)=>{
+    this.commonService.editAddressById(addressId).subscribe((res:any)=>{
       if(res.status){
         this.addAddress();
         this.manageAddressModel = res.data;
@@ -65,7 +65,7 @@ export class AddressManagementComponent implements OnInit {
     });
   }
   deleteAddressById(addressId:number){
-    this.commonService.editAddressById(addressId,'address/delete-address-by-id').subscribe((res:any)=>{
+    this.commonService.editAddressById(addressId).subscribe((res:any)=>{
       if(res.status){
         this.getAddressByUserId();
       }

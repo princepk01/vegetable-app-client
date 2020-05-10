@@ -6,7 +6,7 @@ export class ManageAddressModel {
     pinCode: string;
     address: string;
     city: string;
-    state: string;
+    state: string=null;
 
 }
 

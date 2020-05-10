@@ -9,6 +9,8 @@ import { CheckOutComponent } from './component/check-out/check-out.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { SingleProductComponent } from './component/single-product/single-product.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
+import { ShowProductsComponent } from './component/show-products/show-products.component';
+import { ShowSingleProductComponent } from './component/show-single-product/show-single-product.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'wish-list',
     component: WishListComponent
+  },
+  {
+    path: 'show-products',
+    component: ShowProductsComponent
+  },
+  {
+    path: 'show-single-product',
+    component: ShowSingleProductComponent
   },
   { 
       path: 'profile', loadChildren: () => 

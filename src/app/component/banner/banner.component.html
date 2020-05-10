@@ -93,49 +93,17 @@
   
   
     <div class="container">
-    <div class="row main-row">
-      <div class="col-md-4 first-col" >
-        <div class="row first-row-1">
-          <img class="img-fluid circle" src="assets/images/category-2.jpg"/>
-            <div class="text px-1">
-										<h2 class="mb-1">Fruit</h2>
+		<div class="row main-row">
+			<div class="col-md-4 first-col" (click)="getProductsById(data.id)" *ngFor="let data of productModelList">
+				<div class="row first-row-1">
+					<img class="img-fluid circle" src="{{data.productImageUrl}}"/>
+						<div class="text px-1">
+							<h2 class="mb-1">{{data.productName}}</h2>
 						</div>
-        </div>
-         <div class="row first-row-2">
-            <img class="img-fluid circle" src="assets/images/category-1.jpg"/>
-            <div class="text px-2">
-										<h2 class="mb-2">Vegetables</h2>
-						</div>
-        </div>
-      </div>
-       <div class="col-md-4 second-col">
-        <div class="second-row-1" >
-           <img class="img-fluid circle" src="assets/images/category.jpg"/>
-            <div class="text text-center-v-1">
-										<h2>Vegetables</h2>
-										<p>Protect the health of every home</p>
-										<p><a href="#" class="btn btn-success">Shop now</a></p>
-					  </div>
-           
-        </div>
-         
-      </div>
-       <div class="col-md-4 third-col">
-        <div class="row third-row-1">
-          <img class="img-fluid circle" src="assets/images/category-3.jpg"/>
-             <div class="text px-3">
-										<h2 class="mb-3">Juices</h2>
-						</div>
-        </div>
-         <div class="row third-row-2">
-            <img class="img-fluid circle" src="assets/images/category-4.jpg"/>
-            <div class="text px-4">
-										<h2 class="mb-4">Dried</h2>
-						</div>
-        </div>
-      </div>
-    </div>
-  </div>
+				</div>
+			</div>
+		</div>
+	</div>
   
   
     <section class="">

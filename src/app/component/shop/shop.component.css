@@ -114,7 +114,7 @@ nav>div a.nav-item.nav-link:focus {
     border: 1px solid #f0f0f0;
     height: 276px;
     overflow: hidden;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .product .text {

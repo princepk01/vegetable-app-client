@@ -1,0 +1,81 @@
+<div class="row outer-row-1">
+    <div class="row outer-row-2">
+        <div class="col-md-6 first-column">
+            <div class="row image-box border">
+                <img src="{{productItem.productItemImageModel.itemInageFileUrl}}">
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5 second-column">
+           <div class="row">
+                <div class="product">
+                    <div class="product-offer">
+                        <span class="offer-text">20% OFF</span>
+                    </div>
+                    <h1 class="item-name">{{productItem.itemName}}</h1>
+                    <div class="item-price">
+                         <span class="offer-text">MRP:</span>
+                         <span class="offer-price">{{productItem.itemMrp}}</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="offer-text">Discount Price:</span>
+                        <span class="offer-price">{{productItem.discountPrice}}</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="offer-text">Available In:</span>
+                        <span class="offer-price">{{productItem.productItemDetailsModel.unit}}</span>
+                    </div>
+                    <div class="item-count row">
+						<button type="button" class="b1" (click)="itemCountminus()"><i class="fa fa-minus"></i></button>
+						<input type="text" id="quantity" name="quantity" class="form-control input-number" value="{{itemCount}}" min="1" max="100">
+						<button type="button" class="b1" (click)="itemCountPlus()"><i class="fa fa-plus"></i></button>
+	             	</div>
+					<div class="buy-button">
+					<button type="button" class="btn btn-success b1">Add To Cart</button>
+					<button type="button" class="btn btn-success b2">Buy Now</button>
+					</div>
+                </div>
+				
+           </div>
+        </div>
+		<div class="row">
+            <div class="product-details">
+               <b> <span>Product Details</span></b>
+            </div>
+            <div class="message-box">
+    <li>
+		<b>Nutrient Value & Life</b>
+		<ul>{{productItem.productItemDetailsModel.nutrientValueAndLife}}</ul>
+	</li>
+	<li>
+		<b>Shelf Life</b>
+		<ul>{{productItem.productItemDetailsModel.shelfLife}}</ul>
+	</li>
+	<li>
+		<b>Stroage Tips</b>
+		<ul>{{productItem.productItemDetailsModel.stroageTips}}</ul>
+	</li>
+	<li>
+		<b>Unit</b>
+		<ul>{{productItem.productItemDetailsModel.unit}}</ul>
+	</li>
+
+    <li>
+		<b>Seller</b>
+		<ul>{{productItem.productItemDetailsModel.seller}}</ul>
+	</li>
+    	<li>
+		<b>Description</b>
+		<ul>{{productItem.productItemDetailsModel.description}}</ul>
+	</li>
+    <li>
+		<b>Disclaimer</b>
+		<ul>{{productItem.productItemDetailsModel.disclaimer}}</ul>
+	</li>
+  
+
+</div>
+        </div>
+    </div>
+</div>

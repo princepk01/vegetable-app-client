@@ -12,11 +12,11 @@
                 <div class="col-xs-12 ">
                   <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">ALL</a>
-                      <a class="nav-item nav-link" id="nav-vegetables-tab" data-toggle="tab" href="#nav-vegetables" role="tab" aria-controls="nav-vegetables" aria-selected="false">Vegetables</a>
-                      <a class="nav-item nav-link" id="nav-fruits-tab" data-toggle="tab" href="#nav-fruits" role="tab" aria-controls="nav-fruits" aria-selected="false">Fruits</a>
-                      <a class="nav-item nav-link" id="nav-juice-tab" data-toggle="tab" href="#nav-juice" role="tab" aria-controls="nav-juice" aria-selected="false">Juice</a>
-                      <a class="nav-item nav-link" id="nav-dried-tab" data-toggle="tab" href="#nav-dried" role="tab" aria-controls="nav-dried" aria-selected="false">Dried</a>
+                      <a class="nav-item nav-link active" id="nav-all-tab" (click)="getAllProducts()" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">ALL</a>
+                      <a class="nav-item nav-link" id="nav-vegetables-tab" (click)="getProductItemByProductName('Vegetables')" data-toggle="tab" href="#nav-vegetables" role="tab" aria-controls="nav-vegetables" aria-selected="false">Vegetables</a>
+                      <a class="nav-item nav-link" id="nav-fruits-tab" (click)="getProductItemByProductName('Fruits')" data-toggle="tab" href="#nav-fruits" role="tab" aria-controls="nav-fruits" aria-selected="false">Fruits</a>
+                      <a class="nav-item nav-link" id="nav-juice-tab" (click)="getProductItemByProductName('Juices')" data-toggle="tab" href="#nav-juice" role="tab" aria-controls="nav-juice" aria-selected="false">Juice</a>
+                      <a class="nav-item nav-link" id="nav-dried-tab" (click)="getProductItemByProductName('Dried Food')" data-toggle="tab" href="#nav-dried" role="tab" aria-controls="nav-dried" aria-selected="false">Dried</a>
                     </div>
                   </nav>
                   <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -25,33 +25,33 @@
                      <!-- <div class="container">-->
 		<div class="row"> 
 		
-       <div class="col-md-6 col-lg-3 ftco-animate">
+       <div class="col-md-6 col-lg-3 ftco-animate" *ngFor="let productItem of productsItemList" (click)="showProductItem(productItem.id)">
         <div class="product">
-          	<a href="#" class="img-prod"><img class="img-fluid " src="assets/images/product-1.jpg" alt="Colorlib Template">
+          	<a class="img-prod"><img class="img-fluid " src="{{productItem.productItemImageModel.itemInageFileUrl}}"  alt="Colorlib Template">
     			<span class="status">30%</span>
     			<div class="overlay"></div>
     		</a>
         <div class="text py-3 pb-4 px-3 text-center">
             <h3>
-				<a href="#">Bell Pepper</a></h3>
+				<a>{{productItem.itemName}}</a></h3>
 					<div class="d-flex">
     					<div class="pricing">
 		    				<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
+								<span class="mr-2 price-dc">{{productItem.itemMrp}}</span>
+								<span class="price-sale">{{productItem.discountPrice}}</span>
 							</p>
 		    			</div>
 	    			</div>
 
 			<div class="bottom-area ">
 				<div class="auto-verlay ">
-					<a href="#" class="add-to-cart text-center-1 rounded-circle">
+					<a class="add-to-cart text-center-1 rounded-circle">
 						<span><i class="fas fa-bars"></i></span>
 					</a>
-					<a href="#" class="buy-now text-center-1 rounded-circle">
+					<a class="buy-now text-center-1 rounded-circle">
 						<span><i class="fas fa-shopping-cart"></i></span>
 					</a>
-					<a href="#" class="heart text-center-1 rounded-circle">
+					<a class="heart text-center-1 rounded-circle">
 						<span><i class="fas fa-heart"></i></span>
 					</a>
 				</div>
@@ -59,283 +59,42 @@
          </div>
         </div>
        </div> 
-	   
-	<div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-2.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-    				<div class="overlay"></div>
-    		</a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">Strawberry</a></h3>
-    		<div class="d-flex">
-    			<div class="pricing">
-					<p class="price">
-						<span class="mr-2 price-dc">$120.00</span>
-						<span class="price-sale">$80.00</span>
-					</p>
-		    	</div>
-	    	</div>
-
-
-        <div class="bottom-area ">
-	    	<div class="auto-verlay ">
-	    		<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    			<span><i class="fas fa-bars"></i></span>
-	    		</a>
-	    		<a href="#" class="buy-now text-center-1 rounded-circle">
-					<span><i class="fas fa-shopping-cart"></i></span>
-	    		</a>
-	    		<a href="#" class="heart text-center-1 rounded-circle">
-					<span><i class="fas fa-heart"></i></span>
-	    			</a>
-   			</div>
-   		</div>
-        </div>
-        </div>
-    </div> 
-	   
-	 <div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-3.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-						<div class="overlay"></div>
-    		</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Green Beans</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	   					<a href="#" class="buy-now text-center-1 rounded-circle">
-	   						<span><i class="fas fa-shopping-cart"></i></span>
-	   					</a>
-	   					<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	   
-	    <div class="col-md-6 col-lg-3 ftco-animate">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-4.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Purple Cabbage</a></h3>
-    			<div class="d-flex">
-					<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-				</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div> 
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-5.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Tomatoe</a></h3>
-    				<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    			</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    				</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-6.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-					<div class="overlay"></div>
-				</a>
-          <div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Brocolli</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-    			</div>
-			</div>
-        </div>
-		</div> 
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-7.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-				</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Carrots</a></h3>
-    				<div class="d-flex">
-    					<div class="pricing">
-							<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
-							</p>
-						</div>
-	    			</div>
-					<div class="bottom-area ">
-	    				<div class="auto-verlay ">
-	    					<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-bars"></i></span>
-	    					</a>
-	    					<a href="#" class="buy-now text-center-1 rounded-circle">
-	    						<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    					<a href="#" class="heart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-heart"></i></span>
-	    					</a>
-    					</div>
-    				</div>
-				</div>
-			</div>
-		</div>
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-8.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Fruit Juice</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-		</div>
       <!--</div>-->
-	  <div class="page-row">
+	  <!--<div class="page-row">
 		<ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-	</div>
+	</div>-->
 	</div>
     </div>
     <div class="tab-pane fade" id="nav-vegetables" role="tabpanel" aria-labelledby="nav-vegetables-tab">
         <div class="row"> 
 		
-       <div class="col-md-6 col-lg-3 ftco-animate">
+       <div class="col-md-6 col-lg-3 ftco-animate" *ngFor="let productItem of productsItemList" (click)="showProductItem(productItem.id)">
         <div class="product">
-          	<a href="#" class="img-prod"><img class="img-fluid " src="assets/images/product-1.jpg" alt="Colorlib Template">
+          	<a class="img-prod"><img class="img-fluid " src="{{productItem.productItemImageModel.itemInageFileUrl}}" alt="Colorlib Template">
     			<span class="status">30%</span>
     			<div class="overlay"></div>
     		</a>
         <div class="text py-3 pb-4 px-3 text-center">
             <h3>
-				<a href="#">Bell Pepper</a></h3>
+				<a>{{productItem.itemName}}</a></h3>
 					<div class="d-flex">
     					<div class="pricing">
 		    				<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
+								<span class="mr-2 price-dc">{{productItem.itemMrp}}</span>
+								<span class="price-sale">{{productItem.discountPrice}}</span>
 							</p>
 		    			</div>
 	    			</div>
 
 			<div class="bottom-area ">
 				<div class="auto-verlay ">
-					<a href="#" class="add-to-cart text-center-1 rounded-circle">
+					<a class="add-to-cart text-center-1 rounded-circle">
 						<span><i class="fas fa-bars"></i></span>
 					</a>
-					<a href="#" class="buy-now text-center-1 rounded-circle">
+					<a class="buy-now text-center-1 rounded-circle">
 						<span><i class="fas fa-shopping-cart"></i></span>
 					</a>
-					<a href="#" class="heart text-center-1 rounded-circle">
+					<a class="heart text-center-1 rounded-circle">
 						<span><i class="fas fa-heart"></i></span>
 					</a>
 				</div>
@@ -344,283 +103,42 @@
         </div>
        </div> 
 	   
-	<div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-2.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-    				<div class="overlay"></div>
-    		</a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">Strawberry</a></h3>
-    		<div class="d-flex">
-    			<div class="pricing">
-					<p class="price">
-						<span class="mr-2 price-dc">$120.00</span>
-						<span class="price-sale">$80.00</span>
-					</p>
-		    	</div>
-	    	</div>
-
-
-        <div class="bottom-area ">
-	    	<div class="auto-verlay ">
-	    		<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    			<span><i class="fas fa-bars"></i></span>
-	    		</a>
-	    		<a href="#" class="buy-now text-center-1 rounded-circle">
-					<span><i class="fas fa-shopping-cart"></i></span>
-	    		</a>
-	    		<a href="#" class="heart text-center-1 rounded-circle">
-					<span><i class="fas fa-heart"></i></span>
-	    			</a>
-   			</div>
-   		</div>
-        </div>
-        </div>
-	
-    </div> 
-	   
-	 <div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-3.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-						<div class="overlay"></div>
-    		</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Green Beans</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	   					<a href="#" class="buy-now text-center-1 rounded-circle">
-	   						<span><i class="fas fa-shopping-cart"></i></span>
-	   					</a>
-	   					<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	   
-	    <div class="col-md-6 col-lg-3 ftco-animate">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-4.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Purple Cabbage</a></h3>
-    			<div class="d-flex">
-					<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-				</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div> 
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-5.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Tomatoe</a></h3>
-    				<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    			</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    				</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-6.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-					<div class="overlay"></div>
-				</a>
-          <div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Brocolli</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-    			</div>
-			</div>
-        </div>
-		</div> 
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-7.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-				</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Carrots</a></h3>
-    				<div class="d-flex">
-    					<div class="pricing">
-							<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
-							</p>
-						</div>
-	    			</div>
-					<div class="bottom-area ">
-	    				<div class="auto-verlay ">
-	    					<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-bars"></i></span>
-	    					</a>
-	    					<a href="#" class="buy-now text-center-1 rounded-circle">
-	    						<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    					<a href="#" class="heart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-heart"></i></span>
-	    					</a>
-    					</div>
-    				</div>
-				</div>
-			</div>
-		</div>
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-8.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Fruit Juice</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-		</div>
-      <!--</div>-->
-        <div class="page-row">
+	<!--</div>-->
+    <!--    <div class="page-row">
 		<ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-	</div>
+	</div>-->
 		</div>
     </div>
     <div class="tab-pane fade" id="nav-fruits" role="tabpanel" aria-labelledby="nav-fruits-tab">
         <div class="row"> 
 		
-       <div class="col-md-6 col-lg-3 ftco-animate">
+       <div class="col-md-6 col-lg-3 ftco-animate" *ngFor="let productItem of productsItemList" (click)="showProductItem(productItem.id)">
         <div class="product">
-          	<a href="#" class="img-prod"><img class="img-fluid " src="assets/images/product-1.jpg" alt="Colorlib Template">
+          	<a class="img-prod"><img class="img-fluid " src="{{productItem.productItemImageModel.itemInageFileUrl}}" alt="Colorlib Template">
     			<span class="status">30%</span>
     			<div class="overlay"></div>
     		</a>
         <div class="text py-3 pb-4 px-3 text-center">
             <h3>
-				<a href="#">Bell Pepper</a></h3>
+				<a>{{productItem.itemName}}</a></h3>
 					<div class="d-flex">
     					<div class="pricing">
 		    				<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
+								<span class="mr-2 price-dc">{{productItem.itemMrp}}</span>
+								<span class="price-sale">{{productItem.discountPrice}}</span>
 							</p>
 		    			</div>
 	    			</div>
 
 			<div class="bottom-area ">
 				<div class="auto-verlay ">
-					<a href="#" class="add-to-cart text-center-1 rounded-circle">
+					<a class="add-to-cart text-center-1 rounded-circle">
 						<span><i class="fas fa-bars"></i></span>
 					</a>
-					<a href="#" class="buy-now text-center-1 rounded-circle">
+					<a class="buy-now text-center-1 rounded-circle">
 						<span><i class="fas fa-shopping-cart"></i></span>
 					</a>
-					<a href="#" class="heart text-center-1 rounded-circle">
+					<a  class="heart text-center-1 rounded-circle">
 						<span><i class="fas fa-heart"></i></span>
 					</a>
 				</div>
@@ -628,283 +146,42 @@
          </div>
         </div>
        </div> 
-	   
-	<div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-2.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-    				<div class="overlay"></div>
-    		</a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">Strawberry</a></h3>
-    		<div class="d-flex">
-    			<div class="pricing">
-					<p class="price">
-						<span class="mr-2 price-dc">$120.00</span>
-						<span class="price-sale">$80.00</span>
-					</p>
-		    	</div>
-	    	</div>
-
-
-        <div class="bottom-area ">
-	    	<div class="auto-verlay ">
-	    		<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    			<span><i class="fas fa-bars"></i></span>
-	    		</a>
-	    		<a href="#" class="buy-now text-center-1 rounded-circle">
-					<span><i class="fas fa-shopping-cart"></i></span>
-	    		</a>
-	    		<a href="#" class="heart text-center-1 rounded-circle">
-					<span><i class="fas fa-heart"></i></span>
-	    			</a>
-   			</div>
-   		</div>
-        </div>
-        </div>
-    </div> 
-	   
-	 <div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-3.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-						<div class="overlay"></div>
-    		</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Green Beans</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	   					<a href="#" class="buy-now text-center-1 rounded-circle">
-	   						<span><i class="fas fa-shopping-cart"></i></span>
-	   					</a>
-	   					<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	   
-	    <div class="col-md-6 col-lg-3 ftco-animate">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-4.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Purple Cabbage</a></h3>
-    			<div class="d-flex">
-					<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-				</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div> 
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-5.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Tomatoe</a></h3>
-    				<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    			</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    				</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-6.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-					<div class="overlay"></div>
-				</a>
-          <div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Brocolli</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-    			</div>
-			</div>
-        </div>
-		</div> 
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-7.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-				</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Carrots</a></h3>
-    				<div class="d-flex">
-    					<div class="pricing">
-							<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
-							</p>
-						</div>
-	    			</div>
-					<div class="bottom-area ">
-	    				<div class="auto-verlay ">
-	    					<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-bars"></i></span>
-	    					</a>
-	    					<a href="#" class="buy-now text-center-1 rounded-circle">
-	    						<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    					<a href="#" class="heart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-heart"></i></span>
-	    					</a>
-    					</div>
-    				</div>
-				</div>
-			</div>
-		</div>
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-8.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Fruit Juice</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-		</div>
-      <!--</div>-->
-        <div class="page-row">
+	  <!--</div>-->
+        <!--<div class="page-row">
 		<ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-	</div>
+	</div>-->
 		</div>
     </div>
     <div class="tab-pane fade" id="nav-juice" role="tabpanel" aria-labelledby="nav-juice-tab">
         <div class="row"> 
 		
-       <div class="col-md-6 col-lg-3 ftco-animate">
+       <div class="col-md-6 col-lg-3 ftco-animate" *ngFor="let productItem of productsItemList" (click)="showProductItem(productItem.id)">
         <div class="product">
-          	<a href="#" class="img-prod"><img class="img-fluid " src="assets/images/product-1.jpg" alt="Colorlib Template">
+          	<a class="img-prod"><img class="img-fluid " src="{{productItem.productItemImageModel.itemInageFileUrl}}" alt="Colorlib Template">
     			<span class="status">30%</span>
     			<div class="overlay"></div>
     		</a>
         <div class="text py-3 pb-4 px-3 text-center">
             <h3>
-				<a href="#">Bell Pepper</a></h3>
+				<a>{{productItem.itemName}}</a></h3>
 					<div class="d-flex">
     					<div class="pricing">
 		    				<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
+								<span class="mr-2 price-dc">{{productItem.itemMrp}}</span>
+								<span class="price-sale">{{productItem.discountPrice}}</span>
 							</p>
 		    			</div>
 	    			</div>
 
 			<div class="bottom-area ">
 				<div class="auto-verlay ">
-					<a href="#" class="add-to-cart text-center-1 rounded-circle">
+					<a class="add-to-cart text-center-1 rounded-circle">
 						<span><i class="fas fa-bars"></i></span>
 					</a>
-					<a href="#" class="buy-now text-center-1 rounded-circle">
+					<a class="buy-now text-center-1 rounded-circle">
 						<span><i class="fas fa-shopping-cart"></i></span>
 					</a>
-					<a href="#" class="heart text-center-1 rounded-circle">
+					<a class="heart text-center-1 rounded-circle">
 						<span><i class="fas fa-heart"></i></span>
 					</a>
 				</div>
@@ -912,283 +189,42 @@
          </div>
         </div>
        </div> 
-	   
-	<div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-2.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-    				<div class="overlay"></div>
-    		</a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">Strawberry</a></h3>
-    		<div class="d-flex">
-    			<div class="pricing">
-					<p class="price">
-						<span class="mr-2 price-dc">$120.00</span>
-						<span class="price-sale">$80.00</span>
-					</p>
-		    	</div>
-	    	</div>
-
-
-        <div class="bottom-area ">
-	    	<div class="auto-verlay ">
-	    		<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    			<span><i class="fas fa-bars"></i></span>
-	    		</a>
-	    		<a href="#" class="buy-now text-center-1 rounded-circle">
-					<span><i class="fas fa-shopping-cart"></i></span>
-	    		</a>
-	    		<a href="#" class="heart text-center-1 rounded-circle">
-					<span><i class="fas fa-heart"></i></span>
-	    			</a>
-   			</div>
-   		</div>
-        </div>
-        </div>
-    </div> 
-	   
-	 <div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-3.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-						<div class="overlay"></div>
-    		</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Green Beans</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	   					<a href="#" class="buy-now text-center-1 rounded-circle">
-	   						<span><i class="fas fa-shopping-cart"></i></span>
-	   					</a>
-	   					<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	   
-	    <div class="col-md-6 col-lg-3 ftco-animate">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-4.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Purple Cabbage</a></h3>
-    			<div class="d-flex">
-					<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-				</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div> 
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-5.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Tomatoe</a></h3>
-    				<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    			</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    				</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-6.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-					<div class="overlay"></div>
-				</a>
-          <div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Brocolli</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-    			</div>
-			</div>
-        </div>
-		</div> 
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-7.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-				</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Carrots</a></h3>
-    				<div class="d-flex">
-    					<div class="pricing">
-							<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
-							</p>
-						</div>
-	    			</div>
-					<div class="bottom-area ">
-	    				<div class="auto-verlay ">
-	    					<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-bars"></i></span>
-	    					</a>
-	    					<a href="#" class="buy-now text-center-1 rounded-circle">
-	    						<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    					<a href="#" class="heart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-heart"></i></span>
-	    					</a>
-    					</div>
-    				</div>
-				</div>
-			</div>
-		</div>
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-8.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Fruit Juice</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-		</div>
-      <!--</div>-->
-        <div class="page-row">
+	  <!--</div>-->
+        <!--<div class="page-row">
 		<ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-	</div>
+	</div>-->
 		</div>
 	</div>
 	<div class="tab-pane fade" id="nav-dried" role="tabpanel" aria-labelledby="nav-dried-tab">
        <div class="row"> 
 		
-       <div class="col-md-6 col-lg-3 ftco-animate">
+       <div class="col-md-6 col-lg-3 ftco-animate" *ngFor="let productItem of productsItemList" (click)="showProductItem(productItem.id)">
         <div class="product">
-          	<a href="#" class="img-prod"><img class="img-fluid " src="assets/images/product-1.jpg" alt="Colorlib Template">
+          	<a  class="img-prod"><img class="img-fluid " src="{{productItem.productItemImageModel.itemInageFileUrl}}" alt="Colorlib Template">
     			<span class="status">30%</span>
     			<div class="overlay"></div>
     		</a>
         <div class="text py-3 pb-4 px-3 text-center">
             <h3>
-				<a href="#">Bell Pepper</a></h3>
+				<a>{{productItem.itemName}}</a></h3>
 					<div class="d-flex">
     					<div class="pricing">
 		    				<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
+								<span class="mr-2 price-dc">{{productItem.itemMrp}}</span>
+								<span class="price-sale">{{productItem.discountPrice}}</span>
 							</p>
 		    			</div>
 	    			</div>
 
 			<div class="bottom-area ">
 				<div class="auto-verlay ">
-					<a href="#" class="add-to-cart text-center-1 rounded-circle">
+					<a class="add-to-cart text-center-1 rounded-circle">
 						<span><i class="fas fa-bars"></i></span>
 					</a>
-					<a href="#" class="buy-now text-center-1 rounded-circle">
+					<a class="buy-now text-center-1 rounded-circle">
 						<span><i class="fas fa-shopping-cart"></i></span>
 					</a>
-					<a href="#" class="heart text-center-1 rounded-circle">
+					<a class="heart text-center-1 rounded-circle">
 						<span><i class="fas fa-heart"></i></span>
 					</a>
 				</div>
@@ -1197,250 +233,12 @@
         </div>
        </div> 
 	   
-	<div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-2.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-    				<div class="overlay"></div>
-    		</a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">Strawberry</a></h3>
-    		<div class="d-flex">
-    			<div class="pricing">
-					<p class="price">
-						<span class="mr-2 price-dc">$120.00</span>
-						<span class="price-sale">$80.00</span>
-					</p>
-		    	</div>
-	    	</div>
-
-
-        <div class="bottom-area ">
-	    	<div class="auto-verlay ">
-	    		<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    			<span><i class="fas fa-bars"></i></span>
-	    		</a>
-	    		<a href="#" class="buy-now text-center-1 rounded-circle">
-					<span><i class="fas fa-shopping-cart"></i></span>
-	    		</a>
-	    		<a href="#" class="heart text-center-1 rounded-circle">
-					<span><i class="fas fa-heart"></i></span>
-	    			</a>
-   			</div>
-   		</div>
-        </div>
-        </div>
-    </div> 
+	
 	   
-	 <div class="col-md-6 col-lg-3 ftco-animate">
-        <div class="product">
-          	<a href="#" class="img-prod">
-				<img class="img-fluid " src="assets/images/product-3.jpg" alt="Colorlib Template">
-					<span class="status">30%</span>
-						<div class="overlay"></div>
-    		</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Green Beans</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	   					<a href="#" class="buy-now text-center-1 rounded-circle">
-	   						<span><i class="fas fa-shopping-cart"></i></span>
-	   					</a>
-	   					<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	   
-	    <div class="col-md-6 col-lg-3 ftco-animate">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-4.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Purple Cabbage</a></h3>
-    			<div class="d-flex">
-					<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-				</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div> 
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-5.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Tomatoe</a></h3>
-    				<div class="d-flex">
-    				<div class="pricing">
-		    			<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    			</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    				</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-       </div> 
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-6.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-					<div class="overlay"></div>
-				</a>
-          <div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Brocolli</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-					<div class="auto-verlay ">
-						<a href="#" class="add-to-cart text-center-1 rounded-circle">
-							<span><i class="fas fa-bars"></i></span>
-						</a>
-						<a href="#" class="buy-now text-center-1 rounded-circle">
-							<span><i class="fas fa-shopping-cart"></i></span>
-						</a>
-						<a href="#" class="heart text-center-1 rounded-circle">
-							<span><i class="fas fa-heart"></i></span>
-						</a>
-					</div>
-    			</div>
-			</div>
-        </div>
-		</div> 
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-7.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-				</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Carrots</a></h3>
-    				<div class="d-flex">
-    					<div class="pricing">
-							<p class="price">
-								<span class="mr-2 price-dc">$120.00</span>
-								<span class="price-sale">$80.00</span>
-							</p>
-						</div>
-	    			</div>
-					<div class="bottom-area ">
-	    				<div class="auto-verlay ">
-	    					<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-bars"></i></span>
-	    					</a>
-	    					<a href="#" class="buy-now text-center-1 rounded-circle">
-	    						<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    					<a href="#" class="heart text-center-1 rounded-circle">
-	    						<span><i class="fas fa-heart"></i></span>
-	    					</a>
-    					</div>
-    				</div>
-				</div>
-			</div>
-		</div>
-	   
-	   
-	    <div class="col-md-6 col-lg-3 top">
-			<div class="product">
-				<a href="#" class="img-prod">
-					<img class="img-fluid " src="assets/images/product-8.jpg" alt="Colorlib Template">
-    				<span class="status">30%</span>
-    				<div class="overlay"></div>
-    			</a>
-			<div class="text py-3 pb-4 px-3 text-center">
-            	<h3><a href="#">Fruit Juice</a></h3>
-    			<div class="d-flex">
-    				<div class="pricing">
-						<p class="price">
-							<span class="mr-2 price-dc">$120.00</span>
-							<span class="price-sale">$80.00</span>
-						</p>
-		    		</div>
-	    		</div>
-              	<div class="bottom-area ">
-	    			<div class="auto-verlay ">
-	    				<a href="#" class="add-to-cart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-bars"></i></span>
-	    				</a>
-	    				<a href="#" class="buy-now text-center-1 rounded-circle">
-	    					<span><i class="fas fa-shopping-cart"></i></span>
-	    					</a>
-	    				<a href="#" class="heart text-center-1 rounded-circle">
-	    					<span><i class="fas fa-heart"></i></span>
-	    				</a>
-    				</div>
-    			</div>
-			</div>
-        </div>
-		</div>
-      <!--</div>-->
-        <div class="page-row">
+	<!--</div>-->
+    <!--    <div class="page-row">
 		<ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-	</div>
+	</div>-->
 		
     </div>
 	</div>

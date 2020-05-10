@@ -5,6 +5,6 @@ export class UserModel {
     emailAddress: string;
     password: string;
     gender: string;
-    userRole: string;
+    userRole: string = 'null';
   
 }

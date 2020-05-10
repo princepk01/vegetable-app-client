@@ -18,7 +18,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <!--<a class="nav-link" (click)="menu('')">HOME</a>-->
-        <a class="nav-link" [routerLink]="['/']">HOME</a>
+        <a class="nav-link" href="">HOME</a>
       </li>
        <!-- Dropdown -->
       <li class="nav-item dropdown">
@@ -161,7 +161,7 @@
               <div class="form-group ">
                 <label class="sr-only" for="role"><b>Role</b></label>
                 <select id="role"   class='select-option' [(ngModel)]="userModel.userRole">
-                    <option class='option' value=null >Select Role</option>
+                    <option class='option' value="null" >Select Role</option>
                     <option class='option' value="ROLE_ADMIN">ROLE_ADMIN</option>
                     <option class='option' value="ROLE_USER">ROLE_USER</option>
                 </select>

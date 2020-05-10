@@ -180,8 +180,10 @@
     background: #82ae46;
     margin-top: -34px;
     height: 34px;
-    width: 80px;
+    width: 135px;
     border-radius: 5px;
+    /* position: absolute; */
+    text-align: center;
 }
 
 .px-1:hover {
@@ -614,6 +616,7 @@
 .third-row-1,
 .third-row-2 img:hover {
     cursor: pointer;
+    margin-top: 20px;
 }
 
 hr {

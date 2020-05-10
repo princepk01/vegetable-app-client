@@ -1,0 +1,144 @@
+<!--<div class="container-fluid">-->
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <div id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="account"><strong>Product Item</strong></li>
+                        <li id="personal"><strong>Product Details</strong></li>
+                        <li id="payment"><strong>Image</strong></li>
+                        <!--<li id="confirm"><strong>Finish</strong></li>-->
+                    </ul>
+                    <fieldset>
+                        <div class="form-card">
+                        	<div class="row">
+								<label class="col-md-5 fieldlabels">Product Name</label> 
+								 <select id="productName"  [(ngModel)]="productItemModel.productId" class='select-option col-md-7' >
+									<option class='option' [ngValue]=null >Select Product Name</option>
+									<option class='option' [ngValue]="product.id" *ngFor="let product of productModelList">{{product.productName}}</option>
+								</select> <br>
+							</div><br>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Product Item Name</label> 
+								<input class="col-md-7" type="text" name="itemName" [(ngModel)] = "productItemModel.itemName" placeholder="Enter item name" /> 
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Total Quantity</label> 
+								<input class ="col-md-7" type="text" name="totalQuantity" [(ngModel)] ="productItemModel.totalQuantity" placeholder="Enter total quantity" /> 
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Total Price</label> 
+								<input class="col-md-7" type="text" name="totalPrice" [(ngModel)] ="productItemModel.totalPrice" placeholder="Enter total price" />
+							</div>
+							
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Product Item Mrp</label> 
+								<input class="col-md-7" type="text" name="itemMrp" [(ngModel)] ="productItemModel.itemMrp" placeholder="Enter mrp" />
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Discount Price</label> 
+								<input class="col-md-7" type="text" name="discountPrice" [(ngModel)] ="productItemModel.discountPrice" placeholder="Enter discount price" />
+							</div>
+					</div> 
+						<input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                           <!-- <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Personal Information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 2 - 4</h2>
+                                </div>
+                            </div> -->
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Nutrient Value & Life</label> 
+								<input class ="col-md-7" type="text" name="nutrientValueAndLife" [(ngModel)] ="productItemDetailsModel.nutrientValueAndLife" placeholder="Enter nutrient value & life" /> 
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Shelf Life</label> 
+								<input class="col-md-7" type="text" name="shelfLife" [(ngModel)] ="productItemDetailsModel.shelfLife" placeholder="Enter self life" />
+							</div>
+							
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Storage Tips</label> 
+								<input class="col-md-7" type="text" name="stroageTips" [(ngModel)] ="productItemDetailsModel.stroageTips" placeholder="Enter storage tips" />
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Unit</label> 
+								<input class="col-md-7" type="text" name="unit" [(ngModel)] ="productItemDetailsModel.unit" placeholder="Enter unit" />
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Seller</label> 
+								<input class="col-md-7" type="text" name="seller" [(ngModel)] ="productItemDetailsModel.seller" placeholder="Enter seller" />
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Description</label> 
+								<input class="col-md-7" type="text" name="description" [(ngModel)] ="productItemDetailsModel.description" placeholder="Enter description" />
+							</div>
+							<div class="row">
+								<label class="col-md-5 fieldlabels">Disclaimer</label> 
+								<input class="col-md-7" type="text" name="disclaimer" [(ngModel)] ="productItemDetailsModel.disclaimer" placeholder="Enter disclaimer" />
+							</div>
+						</div> 
+						<input type="button" name="next" class="next action-button" value="Next" /> 
+						<input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+						<div class="row">
+                            <label class="col-md-5 fieldlabels">Upload Image Url</label> 
+							<input class="col-md-7" type="text" name="itemInageFileUrl" [(ngModel)] ="productItemImageModel.itemInageFileUrl" placeholder="Enter item image url"> 
+						</div>
+						</div> <input type="button" name="next" class="nextSubmit action-button" (click)="saveproductItem()" value="Submit" /> 
+						<input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+						
+                    </fieldset>
+                    <!--<fieldset>
+                        <div class="form-card">
+                            <br><br>
+                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>-->
+                </div>
+            </div>
+			<div class="table-responsive table-row">
+    <table class="table  table-striped"  >
+      <thead class="thead-dark ">
+        <tr >
+          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+       <tbody>
+		 <tr *ngFor='let data of productItemsList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize'>
+            <!--<th scope="row">{{data.id}}</th>-->
+            <td>{{data.itemName}}</td>
+            <td>{{data.totalQuantity}}</td>
+			<td>{{data.totalPrice}}</td>
+			<td>{{data.itemMrp}}</td>
+			<td>{{data.discountPrice}}</td>
+			<td>
+				<a class="edit" title="Edit" data-toggle="tooltip" (click)="editProductItemById(data.id)" ><i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteProductItemById(data.id)"><i class="material-icons">&#xE872;</i></a>
+              </td>      
+		</tr>
+	    </tbody>
+    </table>
+      <div class=" " >
+       <ngb-pagination type="primary"  [collectionSize]="productItemsList.length" [(page)]="page" [maxSize]="pageSize" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+	        
+    </div>
+  </div>
+        </div>
+    </div>
+<!--</div>-->

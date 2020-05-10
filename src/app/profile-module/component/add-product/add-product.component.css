@@ -1,0 +1,101 @@
+.product-outer-row {
+    width: 100%;
+}
+
+.product-outer-row .product-form {
+    margin-left: 31%;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 26px;
+}
+
+.product-outer-row .product-form .form-group input {
+    width: 421px;
+}
+
+.file-field.medium .file-path-wrapper {
+    height: 3rem;
+}
+
+.file-field.medium .file-path-wrapper .file-path {
+    height: 2.8rem;
+}
+
+.file-field.big-2 .file-path-wrapper {
+    height: 3.7rem;
+}
+
+.file-field.big-2 .file-path-wrapper .file-path {
+    height: 3.5rem;
+}
+
+.form-group .b1 {
+    width: 120px;
+    margin-left: 98%;
+    margin-top: 0px;
+    border-radius: 18px;
+}
+
+.form-group .b2 {
+    width: 120px;
+    margin-left: 157%;
+    margin-top: -67px;
+    border-radius: 18px;
+}
+
+.product-outer-row .product-form .product-row {
+    background-color: #f7f6f2 !important;
+    width: 800px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-left: 10px;
+    margin-top: 18px;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+    cursor: pointer;
+}
+
+table.table td a.delete {
+    color: #E34724;
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 38px;
+}
+
+ngb-pagination {
+    margin-top: 16px;
+}
+
+.table-responsive {
+    background-color: #f7f6f2 !important;
+    margin-top: 40px;
+    margin-left: -12px;
+    border-radius: 9px
+}
+
+.table-row {
+    width: 800px;
+    text-align: center;
+}
+
+.product-dp img {
+    width: 94%;
+    height: 239px;
+    border-radius: 5px;
+    margin-top: -30px;
+    margin-bottom: -21px;
+}
+
+.model-part-1 {
+    width: 80%;
+}
+
+.from-group-label {
+    margin-top: 0px;
+}

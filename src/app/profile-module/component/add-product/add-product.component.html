@@ -1,0 +1,71 @@
+<div class="row product-outer-row ">
+    <div class="row product-form">
+		<div class="row border product-row">
+			<div class="row form-group " >
+				<label class="col-md-5" for="productName">Product Name</label>
+				<input type="text" class="col-md-7 t1 form-control" [(ngModel)] = "productModel.productName" id="productName" placeholder="Enter product name" >
+			</div>
+			<div class="row form-group">
+				<label class="col-md-5" for="file">Product Image Url</label>
+				<input id="productImageUrl" type="text" class="col-md-7 form-control" [(ngModel)] = "productModel.productImageUrl" placeholder="Enter product image url">   <br><br>
+			</div>
+			<div class="form-group">
+				<button type="button" class="b1 btn btn-success" (click)="saveProduct()">Save</button>
+				<button type="button" class="b2 btn btn-danger">Reset</button>
+			</div>
+		</div>
+		
+		          <div class="table-responsive table-row">
+    <table class="table  table-striped"  >
+      <thead class="thead-dark ">
+        <tr >
+          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+       <tbody>
+		 <tr *ngFor='let data of productModelList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize'>
+            <!--<th scope="row">{{data.id}}</th>-->
+            <td>{{data.productName}}</td>
+            <td>
+                <a href="" data-toggle="modal" data-target="#product-view-model" (click)="viewProductRecord(data.id)"><i class="fa fa-eye"></i></a>
+                </td>
+             <td>
+				<a class="edit" title="Edit" data-toggle="tooltip" (click)="editProductById(data.id)"><i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteProductById(data.id)"><i class="material-icons">&#xE872;</i></a>
+              </td>      
+		</tr>
+	    </tbody>
+    </table>
+      <div class=" " >
+        <ngb-pagination type="primary"  [collectionSize]="productListSize" [(page)]="page" [maxSize]="pageSize" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+  </div>
+    <!-- The Login Modal -->
+  <div class="modal fade" id="product-view-model">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-part model-part-1">
+	  <div class="modal-header">
+          <p class="modal-title"><b>Product</b></p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+          <!-- Modal body -->
+        <div class="modal-body">
+				<div  class="product-dp row">
+				
+									
+						<div class="row form-group from-group-label">
+							<label>{{viewProduct.productName}}</label>
+                            				 
+						</div>
+						<div class="row form-group">
+							  <img src="{{viewProduct.productImageUrl}}"/> 
+						</div>
+					
+				
+			</div>
+		</div>
+  </div>
+			</div>
+		</div>
+    </div>
+</div>

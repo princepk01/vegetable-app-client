@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost',
-  port: 9000,
+  baseUrl: 'http://localhost:9000',
+  //port: 9000,
 };
 
 /*

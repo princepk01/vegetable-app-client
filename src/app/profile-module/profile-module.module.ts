@@ -6,9 +6,11 @@ import { AddressManagementComponent } from './component/address-management/addre
 import { ProfileModuleRoutingModule } from './profile-module-routing.module';
 import { ProfileMenuComponent } from './component/profile-menu/profile-menu.component';
 import { MyOrderComponent } from './component/my-order/my-order.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AddProductComponent } from './component/add-product/add-product.component';
+import { AddProductItemComponent } from './component/add-product-item/add-product-item.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -16,14 +18,19 @@ import { HttpClientModule } from '@angular/common/http';
         ProfileManagementComponent,
         AddressManagementComponent,
         ProfileMenuComponent,
-        MyOrderComponent
+        MyOrderComponent,
+        AddProductComponent,
+        AddProductItemComponent
     ],
     imports: [
       CommonModule,
-      ProfileModuleRoutingModule,
       FormsModule,
-      HttpClientModule
-    ]
+      ReactiveFormsModule,
+      HttpClientModule,
+      ProfileModuleRoutingModule,
+      NgbModule,
+    ],
+    bootstrap: [ProfileComponent]
   })
 
 export class ProfileModuleModule{
