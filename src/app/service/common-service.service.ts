@@ -93,4 +93,35 @@ export class CommonServiceService {
   getProductItemByProductName(prodcutName:any){
     return this.httpClient.get(`${environment.baseUrl}/${'product-item/get-product-items-by-product-name'}/` + prodcutName);
   }
+
+  addToCartItem(data:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.post(`${environment.baseUrl}/${'cart-item/save-cart-item'}`, data, httpOptions);
+  }
+
+  getCartItemByUserId(userId:any){
+    return this.httpClient.get(`${environment.baseUrl}/${'cart-item/get-cart-item-by-user-id'}/` + userId);
+  }
+
+  addItemCountIntoCart(cartItemId : number, itemCount:number){
+    return this.httpClient.get(`${environment.baseUrl}/${'cart-item/add-cart-item-by-cart-item-id'}/` + cartItemId +`'/'`+itemCount);
+  }
+  removeCartItem(cartItemId:number){
+    return this.httpClient.get(`${environment.baseUrl}/${'cart-item/delete-cart-item-by-id'}/` + cartItemId);
+  }
+
+  placedOrder(data:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.post(`${environment.baseUrl}/${'placed-order/save-placed-order'}`, data, httpOptions);
+  }
 }

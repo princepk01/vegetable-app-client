@@ -44,7 +44,7 @@
       </li> 
        <li class="nav-item">
         <a class="nav-link" [routerLink]="['/cart']">
-         <span class='fas fa-shopping-cart'>[0]</span>
+         <span class='fas fa-shopping-cart'>[{{cartItemModelList.length}}]</span>
         </a>
       </li> 
       <li class="nav-item" *ngIf="loginSuccess">

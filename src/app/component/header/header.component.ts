@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
         $("#banner").removeClass("shrink");
       }
     });
+    this.getCartItemByUserId();
     this.manageLogin();
   }
   userModel = new UserModel();
@@ -54,10 +55,11 @@ export class HeaderComponent implements OnInit {
         if(res != null && res.status && res.data != null)
             this.loginSuccess = false;
             this.loginProfile = true;
-            //this.userName = (res.data.name).toUpperCase();
+           
             this.userName = (res.data.name).replace(/^./, (res.data.name)[0].toUpperCase());
             localStorage.setItem("userInfo",JSON.stringify(res.data));
             this.loginModel = new LoginModel();
+            this.getCartItemByUserId();
         });
     }
   
@@ -69,7 +71,7 @@ export class HeaderComponent implements OnInit {
           if(userInformation != null){
             this.loginSuccess = false;
             this.loginProfile = true;
-            //this.userName = (userInformation.name).toUpperCase();
+           
             this.userName = (userInformation.name).replace(/^./, (userInformation.name)[0].toUpperCase());
             var role = userInformation.userRole;
             if(role === 'ROLE_ADMIN'){
@@ -86,6 +88,21 @@ export class HeaderComponent implements OnInit {
       this.loginSuccess = true;
       this.loginProfile = false;
       localStorage.clear();
+     this. cartItemModelList = [];
       this.router.navigate(['']);
+    }
+
+    cartItemModelList = [];
+    getCartItemByUserId() {
+      let userInfo = localStorage.getItem('userInfo');
+      if (userInfo != null && userInfo != '') {
+        let userInformation = JSON.parse(userInfo);
+        this.commonService.getCartItemByUserId(userInformation.id).subscribe((res: any) => {
+          if (res.status) {
+            this.cartItemModelList = res.data;
+            console.log('cart item model===> : ', this.cartItemModelList);
+          }
+        });
+      }
     }
 }

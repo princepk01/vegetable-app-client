@@ -1,1 +1,120 @@
-<p>cart works!</p>
+<div class="row outer-row">
+<!--<div class="row image-row">
+		<div class="label-row">
+			<a href="index.html">Home</a>
+			<span>Products</span>
+            <h1 >Products</h1>
+		</div>
+    </div>-->
+
+    
+	
+	
+    <div class="row cart-outer-row-box">
+      	<div class="col-md-7 cart-column-1">
+			<div class="cart-header">
+				<h5><b>My Cart ({{cartItemModelList.length}})</b></h5>
+			</div>
+			<div class="row cart-box" *ngFor="let cartItem of cartItemModelList">
+				<div class="col-md-6 cart-col-1">
+					<img src="{{cartItem.productItemImageModel.itemInageFileUrl}}">
+				</div>
+				<div class="col-md-6 cart-col-2">
+				 	<div class="item-price">
+                        <span><b>{{cartItem.productItemModel.itemName}}</b></span>
+						 
+                    </div>
+				
+					<div class="item-price">
+                        <span class="offer-text">Unit: </span>
+                        <span><label>{{cartItem.productItemDetailsModel.unit}}</label></span>
+                    </div>
+
+					<div class="item-price">
+                        <span class="offer-text">Seller: </span>
+                        <span><label>{{cartItem.productItemDetailsModel.seller}}</label></span>
+                    </div>
+
+					<div class="item-price">
+                        <span class="offer-text">Rs.: </span>
+                        <span><label>{{cartItem.productItemModel.discountPrice}}</label></span>
+						<span><label  class="item-mrp">Rs.: {{cartItem.productItemModel.itemMrp}}</label></span>
+						 <span class="product-offer">20% OFF</span>
+                    </div>
+				
+					<div class="item-count row">
+						<button type="button" class="b1" (click)="itemCountminus(cartItem)"><i class="fa fa-minus"></i></button>
+						<input type="text" id="itemCount" name="itemCount" class="form-control input-number" value="{{cartItem.itemCount}}" min="1" max="100"/>
+						<button type="button" class="b1" (click)="itemCountPlus(cartItem)"><i class="fa fa-plus"></i></button>
+	             	</div>
+					<div class="remove-cart item-price">
+		                <label class="rv" (click)="removeCartItem(cartItem.id)">Remove</label>
+                    </div>
+				
+				
+				</div>
+			</div>
+		
+		</div>
+		<div class="cart-column-2">
+		</div>
+		<div class="col-md-4 cart-column-3">
+			<div class="cart-header">
+				<h5><b>PRICE DETAILS</b></h5>
+			</div>
+			<div class="row price-details-row">
+				<div class="col-md-8">
+					<div class="item-price">
+                        <span><b>Price ({{cartItemModelList.length}})</b></span>
+                    </div>
+					<div class="item-price">
+                        <span><b>Delivery Fee</b></span>
+                    </div>
+					<div class="item-price">
+                        <span><b>Total Amount</b></span>
+                    </div>
+					<div class="item-price">
+                        <span><b>You will save ₹{{savedAmount}} on this order</b></span>
+                    </div>
+				</div>
+				<div class="col-md-4">
+					<div class="item-price">
+                        <span><b>Rs. {{discountPrice}}</b></span>
+                    </div>
+					<div class="item-price">
+                        <span><b>Rs. {{deliveryType}}</b></span>
+                    </div>
+					<div class="item-price">
+                        <span><b>Rs. {{totalAmount}}</b></span>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 delivery-label">
+                    <span><b>DELIVERY ADDRESS</b></span>
+                </div>
+				<div class="col-md-12 delivery-address" *ngFor='let address of addressList' (click)="selectAddress(address)">
+					<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+					 <li>
+						<span class="name"><b>{{address.name}}</b></span>
+       					<span class="mobile-number"><b>{{address.mobileNumber}}</b></span>
+    				<ul>
+            			{{address.address}} <br>
+            			{{address.city}},  {{address.state}} - {{address.pinCode}} <br>
+        	       </ul>
+					</li>
+				</div>
+				<div class="place-order item-price col-md-12">
+                        <button type="button" class="btn btn-success b1" (click)="placedOrder()">Placed Order</button>
+                </div>
+				
+			</div>
+		</div>
+    </div>
+	
+	
+	
+	<section>
+		<app-footer></app-footer>
+	</section>
+</div>

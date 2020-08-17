@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from 'src/app/service/common-service.service';
-import { JsonPipe } from '@angular/common';
+
 import { ProductItemModel } from 'src/app/model/product.item.model';
+import { CartItemModel } from 'src/app/model/cart-item.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-single-product',
@@ -11,23 +13,48 @@ import { ProductItemModel } from 'src/app/model/product.item.model';
 export class ShowSingleProductComponent implements OnInit {
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private commonServiceService : CommonServiceService,
   ) { }
 
   ngOnInit(): void {
     this.getShareData();
   }
-itemCount:number=0;
+tempItemCount:number=1;
 itemCountPlus(){
-  this.itemCount = this.itemCount + 1;
+  this.tempItemCount = this.tempItemCount + 1;
 }
 itemCountminus(){
-  this.itemCount = this.itemCount - 1;
+  this.tempItemCount = this.tempItemCount - 1;
 }
   productItem = new ProductItemModel();
   getShareData(){
     let data = localStorage.getItem('productItem');
     this.productItem = JSON.parse(data);
     console.log('this.productItem===> : ',this.productItem);
+  }
+  cartItemModel= new CartItemModel();
+  addToCartItem(){
+    let userInfo = localStorage.getItem('userInfo');
+    if(userInfo != null && userInfo != ''){
+      this.cartItemModel.productItemModel = this.productItem;
+      this.cartItemModel.productItemDetailsModel = this.productItem.productItemDetailsModel;
+      this.cartItemModel.productItemImageModel = this.productItem.productItemImageModel;
+      this.cartItemModel.itemCount = this.tempItemCount;
+      let userInformation = JSON.parse(userInfo);
+      this.cartItemModel.userId = userInformation.id;
+      this.commonServiceService.addToCartItem(this.cartItemModel).subscribe((res:any)=>{
+        if(res.status){
+          alert(res.message);
+          this.router.navigate(['cart']);
+        }
+      });
+      console.log('cart item==> : ', this.cartItemModel);
+    }else{
+      this.cartItemModel= new CartItemModel();
+      alert('Please login to continue.');
+    }
+
   }
 }

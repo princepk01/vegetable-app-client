@@ -58,8 +58,8 @@ const routes: Routes = [
     component: ShowSingleProductComponent
   },
   { 
-      path: 'profile', loadChildren: () => 
-     import(`./profile-module/profile-module.module`).then(m => m.ProfileModuleModule) 
+      path: 'profile', 
+      loadChildren: () => import(`./profile-module/profile-module.module`).then(m => m.ProfileModuleModule) 
    },
 ];
 
